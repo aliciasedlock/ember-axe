@@ -16,7 +16,7 @@
 
       for (var i = 0, l = violations.length; i < l; i++) {
         // Ember.Logger.error('Violation #' + (i + 1), violations[i]);
-        this.logViolation(violations[i]);
+        axe.ember.logViolation(violations[i]);
       }
 
       Ember.assert('The page should have no accessibility violations. Please check the developer console for more details.', !violations.length);
