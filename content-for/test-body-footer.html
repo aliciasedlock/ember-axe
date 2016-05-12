@@ -15,11 +15,15 @@
       var violations = results.violations;
 
       for (var i = 0, l = violations.length; i < l; i++) {
-        Ember.assert(violations[i].description);
         Ember.Logger.error('Violation #' + (i + 1), violations[i]);
+        axe.assertViolations(violation[i]);
       }
 
       Ember.assert('The page should have no accessibility violations.', !violations.length);
+    },
+
+    assertViolations: function(violation) {
+      Ember.assert(vioation.description);
     },
 
     /**
