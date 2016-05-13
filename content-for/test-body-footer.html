@@ -17,6 +17,8 @@
       Ember.Logger.error('Total Accessibility Violations: ' + violations.length);
 
       for (var i = 0, l = violations.length; i < l; i++) {
+        var violation = violations[i];
+        
         Ember.Logger.warn('Violation ' + (i + 1) + ' of ' + violations.length);
         Ember.Logger.warn(violation.impact.toUpperCase() + ': ' + violation.help);
         Ember.Logger.warn('Offending markup (' + violation.nodes.length + '): ' + violation.nodes.html);
