@@ -14,17 +14,16 @@
     a11yCheckCallback: function(results) {
       var violations = results.violations;
 
-      Ember.Logger.error('Total Accessibility Violations: ' + violations.length);
+      Ember.Logger.warn('Total Accessibility Violations: ' + violations.length);
 
       for (var i = 0, l = violations.length; i < l; i++) {
         var violation = violations[i];
         var violationNodes = axe.ember.nodesToString(violation.nodes);
         
-        Ember.Logger.warn('Violation ' + (i + 1) + ' of ' + violations.length);
-        Ember.Logger.warn(violation.impact.toUpperCase() + ': ' + violation.help);
-        Ember.Logger.warn('Offending markup (' + violation.nodes.length + '): ' + violationNodes);
+        Ember.Logger.error('Violation ' + (i + 1) + ' of ' + violations.length);
+        Ember.Logger.error(violation.impact.toUpperCase() + ': ' + violation.help);
+        Ember.Logger.error('Offending markup (' + violation.nodes.length + '): ' + violationNodes);
         Ember.Logger.info('Additional info: ' + violation.helpUrl);
-        Ember.Logger.info('====================================');
         Ember.Logger.info();
       }
 
@@ -42,7 +41,7 @@
          return node.html;
        });
        
-       return nodesString.toString();
+       return nodesString.join(', ');
      },
 
     /**
