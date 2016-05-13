@@ -18,7 +18,7 @@
 
       for (var i = 0, l = violations.length; i < l; i++) {
         var violation = violations[i];
-        var violationNodes = axe.ember.nodesToString();
+        var violationNodes = axe.ember.nodesToString(violation.nodes);
         
         Ember.Logger.warn('Violation ' + (i + 1) + ' of ' + violations.length);
         Ember.Logger.warn(violation.impact.toUpperCase() + ': ' + violation.help);
